@@ -56,7 +56,7 @@ namespace Streaming.Controllers
                 }
 
                 var boundary = HeaderUtilities.RemoveQuotes(mediaTypeHeader.Boundary.Value).Value;
-                var reader = new MultipartReader(boundary, request.Body);
+                var reader = new MultipartReader(boundary!, request.Body);
                 var section = await reader.ReadNextSectionAsync();
 
                 // This sample try to get the first file from request and save it

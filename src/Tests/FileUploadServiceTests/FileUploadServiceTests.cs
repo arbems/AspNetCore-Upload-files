@@ -9,7 +9,7 @@ namespace Tests.FileUploadServiceTests
             var httpClient = new HttpClient();
             var fileUploadService = new FileUploadService(httpClient);
             string filePath = Path.Combine(
-                AppDomain.CurrentDomain.BaseDirectory + "/FileUploadServiceTests", "sample-8kb.jpg");
+                AppDomain.CurrentDomain.BaseDirectory + "FileUploadServiceTests", "sample-8kb.jpg");
 
             // Act
             var response = await fileUploadService.UploadFileAsync(filePath);
@@ -25,7 +25,7 @@ namespace Tests.FileUploadServiceTests
             var httpClient = new HttpClient();
             var fileUploadService = new FileUploadService(httpClient);
             string filePath = Path.Combine(
-                AppDomain.CurrentDomain.BaseDirectory + "/FileUploadServiceTests", "sample-5mb.jpg");
+                AppDomain.CurrentDomain.BaseDirectory + "FileUploadServiceTests", "sample-5mb.jpg");
 
             // Act
             var response = await fileUploadService.UploadFileAsync(filePath);
@@ -48,7 +48,7 @@ namespace Tests.FileUploadServiceTests
             var httpClient = new HttpClient();
             var fileUploadService = new FileUploadService(httpClient);
             string filePath = Path.Combine(
-                AppDomain.CurrentDomain.BaseDirectory + "/FileUploadServiceTests", "sample-0kb.jpg");
+                AppDomain.CurrentDomain.BaseDirectory + "FileUploadServiceTests", "sample-0kb.jpg");
 
             // Act
             var response = await fileUploadService.UploadFileAsync(filePath);
@@ -71,7 +71,7 @@ namespace Tests.FileUploadServiceTests
             var httpClient = new HttpClient();
             var fileUploadService = new FileUploadService(httpClient);
             string filePath = Path.Combine(
-                AppDomain.CurrentDomain.BaseDirectory + "/FileUploadServiceTests", "sample-fake.jpg");
+                AppDomain.CurrentDomain.BaseDirectory + "FileUploadServiceTests", "sample-fake.jpg");
 
             // Act
             var response = await fileUploadService.UploadFileAsync(filePath);
@@ -94,7 +94,7 @@ namespace Tests.FileUploadServiceTests
             var httpClient = new HttpClient();
             var fileUploadService = new FileUploadService(httpClient);
             string filePath = Path.Combine(
-                AppDomain.CurrentDomain.BaseDirectory + "/FileUploadServiceTests", "sample.3xr");
+                AppDomain.CurrentDomain.BaseDirectory + "FileUploadServiceTests", "sample.3xr");
 
             // Act
             var response = await fileUploadService.UploadFileAsync(filePath);

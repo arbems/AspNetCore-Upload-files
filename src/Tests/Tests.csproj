@@ -38,9 +38,6 @@
     <None Update="FileUploadServiceTests\sample-fake.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="FileUploadServiceTests\sample.3xr">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
   </ItemGroup>
 
 </Project>
