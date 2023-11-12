@@ -26,6 +26,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="FileUploadServiceTests\sample.3xr">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="FileUploadServiceTests\sample-0kb.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

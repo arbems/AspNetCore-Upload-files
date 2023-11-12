@@ -12,10 +12,10 @@ namespace Tests.FileUploadServiceTests
             _httpClient = httpClient;
 
             //Buffering
-            //_serviceUrl = "https://localhost:7082/UploadFiles";
+            _serviceUrl = "https://localhost:7082/UploadFiles";
 
             //Streaming
-            _serviceUrl = "https://localhost:7246/UploadFiles/UploadLargeFile";
+            //_serviceUrl = "https://localhost:7246/UploadFiles/UploadLargeFile";
         }
 
         public async Task<HttpResponseMessage> UploadFileAsync(string filePath)

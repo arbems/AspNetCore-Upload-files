@@ -14,6 +14,13 @@ namespace Tests.FileUploadServiceTests
             // Act
             var response = await fileUploadService.UploadFileAsync(filePath);
 
+            var errorMessage = string.Empty;
+            if (response.Content != null)
+            {
+                // Lee el contenido de la respuesta como una cadena.
+                errorMessage = await response.Content.ReadAsStringAsync();
+            }
+
             // Assert
             response.EnsureSuccessStatusCode();
         }

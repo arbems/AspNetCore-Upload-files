@@ -74,6 +74,12 @@ namespace SampleApp.Utilities
                         "The file type isn't permitted or the file's " +
                         "signature doesn't match the file's extension.");
                 }
+                // Check for malware or viruses
+                else if (HasMalwareOrViruses())
+                {
+                    throw new Exception(
+                        "This file may be unsafe.");
+                }
                 else
                 {
                     return targetStream;
@@ -113,6 +119,20 @@ namespace SampleApp.Utilities
                 return signatures.Any(signature =>
                     headerBytes.Take(signature.Length).SequenceEqual(signature));
             }
+        }
+
+        private static bool HasMalwareOrViruses()
+        {
+            // **WARNING!**
+            // In the following example, the file is saved without
+            // scanning the file's contents. In most production
+            // scenarios, an anti-virus/anti-malware scanner API
+            // is used on the file before making the file available
+            // for download or for use by other systems. 
+            // For more information, see the topic that accompanies 
+            // this sample.
+
+            return false;
         }
     }
 }

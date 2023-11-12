@@ -27,15 +27,8 @@ namespace Streaming.Controllers
             _targetFilePath = _config.GetValue<string>("StoredFilesPath")!;
         }
 
-        /// <summary>
-        /// Action for upload large file
-        /// </summary>
-        /// <remarks>
-        /// Request to this action will not trigger any model binding or model validation,
-        /// because this is a no-argument action
-        /// </remarks>
-        /// <returns></returns>
         [HttpPost]
+        [RequestSizeLimit(256 * 1024 * 1024)]
         [Route(nameof(UploadLargeFile))]
         public async Task<IActionResult> UploadLargeFile()
         {
@@ -94,7 +87,7 @@ namespace Streaming.Controllers
                 return BadRequest(ex.Message);
             }
 
-            return Ok(new { Message = "Solicitud procesada con éxito", Metadata = fileUploadModel.AdditionalMetadata });
+            return Ok(new { Message = "Request processed successfully.", Metadata = fileUploadModel.AdditionalMetadata });
 
         }
 
