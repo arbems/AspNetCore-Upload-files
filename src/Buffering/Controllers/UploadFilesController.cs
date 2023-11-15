@@ -25,37 +25,6 @@ namespace Buffering.Controllers
             _targetFilePath = _config.GetValue<string>("StoredFilesPath")!;
         }
 
-        [HttpPost]        
-        [RequestSizeLimit(256 * 1024 * 1024)]// Handle requests up to 256 MB
-        public async Task<IActionResult> OnPostUploadAsync(IFormFile file)
-        {
-            try
-            {
-                var formFileContent =
-                    await FileHelpers.ProcessFormFile(
-                        file, _permittedExtensions,
-                        _fileSizeLimit);
-
-                // Generate a safe random file name.
-                var trustedFileNameForFileStorage = Path.GetRandomFileName();
-                var filePath = Path.Combine(
-                    Path.GetTempPath(), trustedFileNameForFileStorage);
-
-                // Save file to directory.
-                using var fileStream = System.IO.File.Create(filePath);
-                await fileStream.WriteAsync(formFileContent);
-
-                // To work directly with a FormFile, use the following instead:
-                //await file.CopyToAsync(fileStream);
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
-
-            return Ok(new { Message = "Request processed successfully." });
-        }
-
         [HttpPost]
         [RequestSizeLimit(256 * 1024 * 1024)]// Handle requests up to 256 MB
         public async Task<IActionResult> OnPostUploadAsync(List<IFormFile> files)
